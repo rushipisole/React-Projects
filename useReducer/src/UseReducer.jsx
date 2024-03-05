@@ -7,7 +7,7 @@ const reducer = (state, action) => {
         return state + 1;
     }
     if (action.type === "DECREMENT") {
-        return state - 1;
+        return state - 1;   
     }
     return state;
 }
