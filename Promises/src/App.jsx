@@ -8,7 +8,7 @@ function App() {
       let roll_no = [1, 2, 3, 4, 5]
       // resolve(roll_no)
       // reject("Error white featching the data")
-      if (roll_no.length >  3) {
+      if (roll_no.length > 3) {
         resolve(roll_no)
       } else {
         reject("Error white featching the data")
@@ -17,11 +17,30 @@ function App() {
 
   })
 
+
+  const getBioData = (indexData) => {
+    return new Promise((resolve, reject) => {
+      setTimeout((indexData) => {
+        let biodata = {
+          name: 'Rushi',
+          age: '20',
+        }
+        resolve(`My name is ${biodata.name} roll number is ${indexData} and my age is ${biodata.age} `)
+      }, 2000, indexData);
+    })
+  }
+
   probj1.then((rollno) => {
     console.log(rollno)
-  }).catch((rollno) => {
-    console.log(rollno)
+    return getBioData(rollno[1])
+
+  }).then((newPromise) => {
+    console.log(newPromise)
   })
+
+    .catch((rollno) => {
+      console.log(rollno)
+    })
 
 
   return (
